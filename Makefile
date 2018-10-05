@@ -1,7 +1,7 @@
 CC = gcc
 
-INC = 
-LIBS = 
+INC = -Iinclude -Isrc  -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include 
+LIBS =  -lglib-2.0 -lpthread -lz
 CFLAGS = 
 
 #OBJS = dsmcc-biop-ior.o dsmcc-biop-message.o dsmcc-biop-module.o dsmcc-biop-tap.o \
@@ -18,7 +18,7 @@ TARGET = dsmcc
 all : $(TARGET)
 
 $(TARGET) : 
-	$(CC) -o $(TARGET) $(SRCS) -Iinclude -Isrc  -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -lglib-2.0 -lpthread -lz
+	$(CC) -o $(TARGET) $(SRCS) $(INC) $(LIBS)
 
 clean : 
 	rm -rf $(OBJS) $(TARGET)
