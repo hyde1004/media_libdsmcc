@@ -1,1 +1,2 @@
 #define HAVE_ZLIB
+#define IGNORE_PRIVATE_INDICATOR
