@@ -34,7 +34,11 @@ static int gii_parse_group(struct dsmcc_group_list *group, uint8_t *data, int da
 		return -1;
 
 	if(!dsmcc_getshort(&compat_descriptor_lenght, data, 8, data_lenght))
+#if 0
 		return -1;
+#else
+		DSMCC_WARN("dsmcc_getshort error");
+#endif
 	if(compat_descriptor_lenght != 0)
 	{
 		DSMCC_WARN("group contains a compatibility descriptor but it's unhandled");
